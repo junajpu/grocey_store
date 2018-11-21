@@ -7,7 +7,6 @@
 <spring:url var="js" value="/resources/js" />
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 
- 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +18,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Tienda</title>
+<title>Tienda - ${title}</title>
 
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
@@ -31,11 +30,22 @@
 <body>
 	<!-- Navigation -->
 	<%@include file="./shared/navbar.jsp"%>
+
+	<!-- Page Content -->
 	<c:if test="${userClickHome == true}">
-		<!-- Page Content -->
 		<%@include file="home.jsp"%>
 	</c:if>
-
+	
+	<!-- about -->
+	<c:if test="${userClickAbout == true}">
+		<%@include file="about.jsp"%>
+	</c:if>
+	
+	<!-- contact -->
+	<c:if test="${userClickContact == true}">
+		<%@include file="contact.jsp"%>
+	</c:if>	
+	
 	<!-- Footer -->
 	<%@include file="./shared/footer.jsp"%>
 
